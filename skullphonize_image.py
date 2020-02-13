@@ -22,14 +22,14 @@ def skullphonize_img(img_path, img_scale):
     except IOError:
         return None
 
-    h,w = img.shape[:2]
+    w,h = img.shape[:2]
 
     # Enforce square image: add padding to make image square in the maximum dimension?
 
     # Resize image
     img_resized = img_PIL.resize(((int)(h/img_scale), (int)(w/img_scale)))
     img_rs_px = np.array(img_resized)         # as numpy array
-    h_rs, w_rs = img_rs_px.shape[:2]          # these are the number of clusters in each dimension
+    w_rs, h_rs = img_rs_px.shape[:2]          # these are the number of clusters in each dimension
 
     # Cluster dimension
     cluster_d = 30
@@ -116,7 +116,7 @@ def main():
         fig = plt.figure()
         p_orig = fig.add_subplot(2,2,1)
         p_orig.set_title("Original Image")
-        img = plt.imread(TEST_IMAGE, 0)
+        img = plt.imread(TEST_IMAGE_IN, 0)
         plt.imshow(img)
         p_scaled = fig.add_subplot(2,2,2)
         p_scaled.set_title("Skullphone-ized Image")

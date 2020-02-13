@@ -30,3 +30,4 @@ Here is an example of the current input/output of the notebook:
 - Write tests.  
 - Build out GUI for input/output?
 - Move to webapp (Docker based?)
+- Expand to process video in real-time (ish). Use to build a "mirror".
