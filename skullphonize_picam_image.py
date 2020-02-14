@@ -117,6 +117,12 @@ def main():
         camera.start_preview()
         time.sleep(2) # Delay for startup time
 
+        # # Future implementation of continuous image capture -- finish testing rpi setup and single image processing first
+        # for filename in camera.capture_continuous('img{counter:03d}.jpg'):
+        #     print('Captured %s' % filename)
+        #     time.sleep(300) # wait 5 minutes
+
+
         # Single image test for rpi setup, especially reading straight to cv2 object
         with picamera.array.PiRGBArray(camera) as stream:
             camera.capture(stream, format='bgr')
