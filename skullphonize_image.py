@@ -113,12 +113,13 @@ def main():
 
     # Output resulting image
     if processed_img is not None:
-        fig = plt.figure()
+        fig = plt.figure(figsize=(12,6))
         p_orig = fig.add_subplot(2,2,1)
         p_orig.set_title("Original Image")
         img = plt.imread(TEST_IMAGE_IN, 0)
         plt.imshow(img)
         p_scaled = fig.add_subplot(2,2,2)
+        fig.subplots_adjust(left=0.13, bottom=0, right=0.9, top=0.9, wspace=0.2, hspace=0.06)
         p_scaled.set_title("Skullphone-ized Image")
         plt.imshow(processed_img)
         plt.show()
