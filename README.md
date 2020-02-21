@@ -9,7 +9,7 @@ Here is an example of the current input/output of the notebook:
 **In Terminal:**
 - Place image and skullphonize_image.py in the same directory.
 - Run the script with python (requires NumPy, OpenCV2, MatPlotLib, PIL, sys, os), with the image and scale as arguments:
-    - "python skullphonize_image.py [str IMAGE_NAME] [int SCALE]"
+    ```python skullphonize_image.py [str IMAGE_NAME] [int SCALE]```
 - If a readable image is given, MatPlotLib will open a window showing input and output images side-by-side. The output image will also be saved to the cwd under the same name with scale appended.
 - Errors will be printed to the terminal.
 
