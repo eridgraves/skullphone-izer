@@ -15,7 +15,7 @@ TEST_IMAGE = 'IMG_3723_ART.PNG'# Brockhampton Saturation III album art
 
 
 def skullphonize_img(img_path, img_scale):
-    """Read input file, and if it is an image, represent it as a Skullphone-ized image. Arguments: IMAGE_PATH, SCALE."""
+
     # Read image, set size
     try:
         img = plt.imread(img_path, 0)
@@ -23,7 +23,7 @@ def skullphonize_img(img_path, img_scale):
     except IOError:
         return None
 
-    w,h = img.shape[:2]
+    w, h = img.shape[:2]
 
     # Enforce square image: add padding to make image square in the maximum dimension?
 
@@ -52,11 +52,14 @@ def skullphonize_img(img_path, img_scale):
     # Placeholder for output image:
     out_img = np.empty((1,cluster_d * w_rs,3))             # single px high, (cluster size)x(# clusters wide) wide
 
+    # Flag for first row
+    first_row_entry = True
+
     # For each row of pixels in the rescaled image: (starting top left)
     for row in img_rs_px:
 
         # Flag to throw out placeholder images when concatenated
-        first_entry = True
+        first_col_entry = True
 
         # Make placeholder image for the row of clusters
         cur_row = np.empty((cluster_d,cluster_d,3))
@@ -79,12 +82,20 @@ def skullphonize_img(img_path, img_scale):
             cur_row = cv.hconcat([cur_row, img_rgb])
 
             # Check flag and throw away junk in first cluster of each row
-            if first_entry:
+            if first_col_entry:
                 cur_row = img_rgb
-                first_entry = False
+                first_col_entry = False
+
 
         # Concat row images together images
-        out_img = cv.vconcat([out_img, cur_row])
+        #-- Throw out placeholder image if first row
+        if first_row_entry:
+            out_img = cur_row
+            first_row_entry = False
+
+        #-- Just concat to existing if not first row
+        else:
+            out_img = cv.vconcat([out_img, cur_row])
 
     # Cast image to correct type errors
     out_img = out_img.astype(np.uint8)

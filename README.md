@@ -17,8 +17,7 @@ Here is an example of the current input/output of the notebook:
 - Just open and run the notebook cell-by-cell. This is the easiest way to see how the code works.
 
 ## TODO:
-- **Images taller than they are wide break the script.** I have just been using this for square images.
-- Write tests.  
+- Write tests. ***How do you write tests for image processing scripts?***
 - Build out GUI for input/output?
 - ~~Move to webapp (Docker based?)~~ (shelved 2/21)
 - Expand to process video in real-time (ish). Use to build a "mirror".
