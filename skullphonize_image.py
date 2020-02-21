@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image, ImageDraw
 import sys
+import os
 
 DEBUG = False
 IMAGE_SCALE = 20
@@ -123,6 +124,13 @@ def main():
         p_scaled.set_title("Skullphone-ized Image")
         plt.imshow(processed_img)
         plt.show()
+
+        # Save to file: hacky, will fix later
+        img_out = Image.fromarray(processed_img)
+
+        #-- strip extension, add scale
+
+        img_out.save(os.path.splitext(TEST_IMAGE_IN)[0] + "_" + str(IMAGE_SCALE_IN) + os.path.splitext(TEST_IMAGE_IN)[1])
 
     else:
         print("Error with file type.")
