@@ -58,10 +58,8 @@ e1 = tk.Entry(master)
 e2 = tk.Entry(master)
 
 # Insert default text to save time
-e1.insert(END, 'IMG_3723_ART.PNG')
-e1.pack()
-e2.insert(END, '20')
-e2.pack()
+e1.insert(0, 'IMG_3723_ART.PNG')
+e2.insert(0, '20')
 
 # Set entry box positions
 e1.grid(row=0, column=1)
