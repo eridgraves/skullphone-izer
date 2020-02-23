@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eridgraves/skullphone-izer.svg?branch=master)](https://travis-ci.org/eridgraves/skullphone-izer)
+
 # skullphone-izer
 Make images into the style of Skullphone's "digital media painting" artwork.
 
