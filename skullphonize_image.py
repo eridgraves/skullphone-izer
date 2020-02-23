@@ -136,7 +136,7 @@ def main():
         plt.imshow(processed_img)
         plt.show()
 
-        # Save to file: hacky, will fix later
+        # Save to file: hacky, TODO: fix later
         img_out = Image.fromarray(processed_img)
 
         #-- strip extension, add scale
