@@ -13,6 +13,7 @@ import os
 import tkinter as tk
 from skullphonize_image import skullphonize_img
 
+# Literally just copied main() from skullphonize_image.py and added get() from entrys
 def call_sklphnize():
     #print("Called with %s , %s" % (e1.get(), e2.get()))
     TEST_IMAGE_IN = e1.get()
@@ -47,18 +48,27 @@ def call_sklphnize():
 
 
 master = tk.Tk()
+
+# Make entry labels
 tk.Label(master, text="Image Name").grid(row=0)
 tk.Label(master, text="Scale").grid(row=1)
 
+# Make entry boxes
 e1 = tk.Entry(master)
 e2 = tk.Entry(master)
 
+# Insert default text to save time
+e1.insert(END, 'IMG_3723_ART.PNG')
+e1.pack()
+e2.insert(END, '20')
+e2.pack()
+
+# Set entry box positions
 e1.grid(row=0, column=1)
 e2.grid(row=1, column=1)
 
 # Buttons
 tk.Button(master, text="skullphone-ize", command=call_sklphnize).grid(row=2, column=1)
 tk.Button(master, text="quit", command=master.quit).grid(row=2, column=3)
-
 
 master.mainloop()
